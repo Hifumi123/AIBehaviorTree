@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--EXPORTED BY TOOL, DON'T MODIFY IT!-->
+<!--Source File: HoverBotBT.xml-->
+<behavior name="HoverBotBT" agenttype="HoverBotAgent" version="5">
+  <node class="Selector" id="0">
+    <node class="Sequence" id="2">
+      <node class="Condition" id="4">
+        <property Operator="Equal" />
+        <property Opl="Self.HoverBotAgent::HasTarget()" />
+        <property Opr="const bool false" />
+      </node>
+      <node class="Action" id="1">
+        <property Method="Self.HoverBotAgent::DoPatrol()" />
+        <property ResultOption="BT_INVALID" />
+      </node>
+    </node>
+    <node class="Selector" id="5">
+      <node class="Sequence" id="6">
+        <node class="Condition" id="7">
+          <property Operator="Greater" />
+          <property Opl="Self.HoverBotAgent::GetTargetDist()" />
+          <property Opr="const float 10" />
+        </node>
+        <node class="Action" id="8">
+          <property Method="Self.HoverBotAgent::DoChase()" />
+          <property ResultOption="BT_INVALID" />
+        </node>
+      </node>
+      <node class="Sequence" id="12">
+        <node class="Condition" id="11">
+          <property Operator="Greater" />
+          <property Opl="Self.HoverBotAgent::GetTargetDist()" />
+          <property Opr="const float 3" />
+        </node>
+        <node class="Selector" id="20">
+          <node class="Sequence" id="15">
+            <node class="Condition" id="16">
+              <property Operator="Equal" />
+              <property Opl="Self.HoverBotAgent::IsSeeingTarget()" />
+              <property Opr="const bool true" />
+            </node>
+            <node class="Action" id="21">
+              <property Method="Self.HoverBotAgent::DoChase()" />
+              <property ResultOption="BT_INVALID" />
+            </node>
+            <node class="Action" id="14">
+              <property Method="Self.HoverBotAgent::DoAttack()" />
+              <property ResultOption="BT_INVALID" />
+            </node>
+          </node>
+          <node class="Action" id="13">
+            <property Method="Self.HoverBotAgent::DoChase()" />
+            <property ResultOption="BT_INVALID" />
+          </node>
+        </node>
+      </node>
+      <node class="Selector" id="17">
+        <node class="Sequence" id="9">
+          <node class="Condition" id="18">
+            <property Operator="Equal" />
+            <property Opl="Self.HoverBotAgent::IsSeeingTarget()" />
+            <property Opr="const bool true" />
+          </node>
+          <node class="Action" id="10">
+            <property Method="Self.HoverBotAgent::StopChase()" />
+            <property ResultOption="BT_INVALID" />
+          </node>
+          <node class="Action" id="3">
+            <property Method="Self.HoverBotAgent::DoAttack()" />
+            <property ResultOption="BT_INVALID" />
+          </node>
+        </node>
+        <node class="Action" id="19">
+          <property Method="Self.HoverBotAgent::DoChase()" />
+          <property ResultOption="BT_INVALID" />
+        </node>
+      </node>
+    </node>
+  </node>
+</behavior>
